@@ -9,6 +9,10 @@ import requests  # pip install requests
 from streamlit_lottie import st_lottie  # pip install streamlit-lottie
 from PIL import Image
 from streamlit_option_menu import option_menu
+import streamlit.components.v1 as components  # Import Streamlit
+from streamlit_echarts import st_echarts
+import altair as alt
+
 
 
 def add_bg_from_url():
@@ -40,7 +44,7 @@ st.title("SWEAT, SMILE & REPEAT \U0001F642")
 lottie_hello = load_lottieurl("https://assets4.lottiefiles.com/packages/lf20_qmrxbp0w.json")
 st_lottie(lottie_hello)
 
-with st.expander("Please read instructions before you start"):
+with st.expander(" Please read instructions before you start"):
         st.write("""
 
          For Personal Training:
@@ -85,7 +89,7 @@ div.stButton > button:hover {
 
 runT = st.button('_____Start Personal Training_____')
 #Adding a sidebar to the app
-st.sidebar.title("GymSmart Exercise App")
+st.sidebar.title(u"\U0001F3CB\U0001F3FB""GymSmart Exercise App")
 
 
 #run = st.sidebar.checkbox('Check to start and uncheck to stop!')
@@ -375,4 +379,166 @@ if __name__ == '__main__':
         startTrainer()
     else:
         st.write('Stopped')
-        
+
+
+st.write("""
+\n
+\n
+\n
+
+    """)
+
+
+
+
+st.header("Diet plan set for health and nutrition")
+options = {
+    "title": {"text": "1. Maintainence", "subtext": "Moderate Protein\nModerate Carb\nModerate Fat", "left": "left"},
+    "tooltip": {"trigger": "item"},
+    "legend": {"orient": "vertical", "right": "right",},
+    "series": [
+        {
+            "name": "Intake level Percent",
+            "type": "pie",
+            "radius": "50%",
+            "data": [
+                {"value": 50, "name": "CARB"},
+                {"value": 25, "name": "FAT"},
+                {"value": 25, "name": "PROTEIN"},
+            ],
+            "emphasis": {
+                "itemStyle": {
+                    "shadowBlur": 10,
+                    "shadowOffsetX": 0,
+                    "shadowColor": "rgba(0, 0, 0, 0.5)",
+                }
+            },
+        }
+    ],
+}
+st_echarts(
+    options=options, height="500px",
+)
+
+
+options = {
+    "title": {"text": "2. Weight Loss", "subtext": "High Protein\nLow Carb\nLow Fat", "left": "left"},
+    "tooltip": {"trigger": "item"},
+    "legend": {"orient": "horizontal", "right": "right",},
+    "series": [
+        {
+            "name": "Intake level Percent",
+            "type": "pie",
+            "radius": "50%",
+            "data": [
+                {"value": 45, "name": "CARB"},
+                {"value": 20, "name": "FAT"},
+                {"value": 35, "name": "PROTEIN"},
+            ],
+            "emphasis": {
+                "itemStyle": {
+                    "shadowBlur": 10,
+                    "shadowOffsetX": 0,
+                    "shadowColor": "rgba(0, 0, 0, 0.5)",
+                }
+            },
+        }
+    ],
+}
+st_echarts(
+    options=options, height="500px",
+)
+
+options = {
+    "title": {"text": "3. Muscle Gain", "subtext": "High Protein\nLow Carb\nLow Fat", "left": "left"},
+    "tooltip": {"trigger": "item"},
+    "legend": {"orient": "horizontal", "right": "right",},
+    "series": [
+        {
+            "name": "Intake level Percent",
+            "type": "pie",
+            "radius": "50%",
+            "data": [
+                {"value": 45, "name": "CARB"},
+                {"value": 15, "name": "FAT"},
+                {"value": 40, "name": "PROTEIN"},
+            ],
+            "emphasis": {
+                "itemStyle": {
+                    "shadowBlur": 10,
+                    "shadowOffsetX": 0,
+                    "shadowColor": "rgba(0, 0, 0, 0.5)",
+                }
+            },
+        }
+    ],
+}
+st_echarts(
+    options=options, height="500px",
+)
+
+
+
+
+
+
+Food_1, Food_2, Food_3 = st.tabs(["Proteins", "Carbohydrates", "Fats"])
+
+with Food_1:
+    st.image("https://i.pinimg.com/originals/6a/e7/ce/6ae7ce626818f355336f8ddc10ad8c83.jpg")
+
+with Food_2:
+    col4,col5=st.columns(2)
+    with col4:
+        st.image("https://static.onecms.io/wp-content/uploads/sites/44/2018/05/27200157/vegetables-carbs-chart.png")
+
+    with col5:
+       st.image("https://www.justchartit.com/wp-content/uploads/2021/07/high-carb-vegetables-chart.jpg")
+
+with Food_3:
+    st.image("https://mlhiibtwx79w.i.optimole.com/aQUVB-g-7UefJFGh/w:1024/h:951/q:auto/https://mydietitian.com.au/wp-content/uploads/2020/09/The-Bad-Fats.png")
+
+
+
+st.write('<style>div.row-widget.stRadio > div{flex-direction:row;justify-content: center;} </style>', unsafe_allow_html=True)
+
+st.write('<style>div.st-bf{flex-direction:column;} div.st-ag{font-weight:bold;padding-left:2px;}</style>', unsafe_allow_html=True)
+
+
+st.header("Fitness in a pie chart")
+options = {
+    "title": {"text": "In Percentage(%)", "subtext": "Stay Fit", "left": "center"},
+    "tooltip": {"trigger": "item"},
+    "legend": {"orient": "vertical", "left": "left",},
+    "series": [
+        {
+            "name": "Percentage",
+            "type": "pie",
+            "radius": "80%",
+            "data": [
+                {"value": 20, "name": "Training"},
+                {"value": 30, "name": "Nutrition"},
+                {"value": 10, "name": "Patience"},
+                {"value": 40, "name": "Kindness to Yourself"},
+            ],
+            "emphasis": {
+                "itemStyle": {
+                    "shadowBlur": 10,
+                    "shadowOffsetX": 0,
+                    "shadowColor": "rgba(0, 0, 0, 0.5)",
+                }
+            },
+        }
+    ],
+}
+a1=st_echarts(
+    options=options, height="500px",
+    )
+
+
+choose=st.radio("How was your experience?",("Poor","Satisfactory","Good","Very Good"))
+
+
+
+
+    
