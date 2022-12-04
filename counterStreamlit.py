@@ -10,7 +10,7 @@ from streamlit_lottie import st_lottie  # pip install streamlit-lottie
 from PIL import Image
 from streamlit_option_menu import option_menu
 import streamlit.components.v1 as components  # Import Streamlit
-from streamlit_echarts import st_echarts
+from streamlit_echarts import st_echarts #pip install streamlit_echarts
 import altair as alt
 
 
@@ -82,8 +82,8 @@ div.stButton > button:first-child {
     color:#ffffff;
 }
 div.stButton > button:hover {
-    background-color: #00ff00;
-    color:#ff0000;
+    background-color: #4169E1;
+    color:#ffffff;
     }
 </style>""", unsafe_allow_html=True)
 
