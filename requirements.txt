@@ -1,7 +1,6 @@
 opencv_contrib_python==4.6.0.66
 streamlit==1.11.0
-streamlit_option_menu==0.3.2
 requests
 streamlit-lottie
-option_menu
-Opencv-python
+streamlit_option_menu
+opencv-python
