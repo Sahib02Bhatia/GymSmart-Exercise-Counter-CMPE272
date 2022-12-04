@@ -4,14 +4,10 @@ import mediapipe as mp
 import numpy as np
 import time
 import PoseModel as pm
-import json
 import requests  # pip install requests
 from streamlit_lottie import st_lottie  # pip install streamlit-lottie
-from PIL import Image
 from streamlit_option_menu import option_menu
-import streamlit.components.v1 as components  # Import Streamlit
 from streamlit_echarts import st_echarts
-import altair as alt
 
 
 
