@@ -82,24 +82,46 @@ div.stButton > button:first-child {
     color:#ffffff;
 }
 div.stButton > button:hover {
-    background-color: #00ff00;
-    color:#ff0000;
+    background-color: #4169E1;
+    color:#ffffff;
     }
 </style>""", unsafe_allow_html=True)
 
-runT = st.button('_____Start Personal Training_____')
+runT = st.button('Start Personal Training')
 #Adding a sidebar to the app
 st.sidebar.title(u"\U0001F3CB\U0001F3FB""GymSmart Exercise App")
 
 
 #run = st.sidebar.checkbox('Check to start and uncheck to stop!')
 with st.sidebar:
-    selected = option_menu("Main Menu", ["Home",'About','Description','Instructions'], 
-        icons=['house','display','bar-chart-steps','card-list'], menu_icon="cast", default_index=1)
+    selected = option_menu("Main Menu", ["Home",'What\'s New','About','Description','How to use','Pricing'], 
+        icons=['house','card-list','display','bar-chart-steps','info-circle','currency-dollar'], menu_icon="cast", default_index=1)
     selected
 
 if selected == "Home":
-    st.session_state.sidebar_state = 'collapsed'
+    # st.session_state.sidebar_state = 'collapsed'
+    st.sidebar.text("""
+Ego lifting is harmful for you and 
+others around you. 
+The app is not responsible for 
+any injuries.
+
+""")
+
+if selected == "What\'s New":
+    st.sidebar.text("""
+Most exercise/training applications 
+work on showing the user the right 
+way by using a video tutorial or 
+by asking the user to upload a 
+recorded video. This app works in 
+real-time and shows the range of 
+motion in a quick and effecient 
+manner. Users can look at themselves 
+while exercising and correct the 
+range of motion.
+
+""")
 
 if selected == "About":
     st.sidebar.text("""
@@ -112,7 +134,9 @@ be  used  from  home  and  while
 away. This app helps the user to 
 keep motivated over  long period 
 of time. Other than a laptop, no 
-equipment is necessary.""")
+equipment is necessary.
+
+""")
 
 if selected == "Description":
     st.sidebar.text("""
@@ -145,12 +169,17 @@ This application mainly provides
 the user with two  features that 
 a user can  start  his  personal 
 training  and a  user  can  also 
-count  the  repetations  that he 
+count  the  repetitions  that he 
 has  made. The  below  given are 
 the  respective  steps  how  the 
-user can use these two features.""")
+user can use these two features.
 
-if selected == "Instructions":
+
+
+\n.
+""")
+
+if selected == "How to use":
     st.sidebar.text("""
 Follow the below instructions.
 
@@ -171,11 +200,20 @@ For counting the number of reps:
  3. Start  exercising,  look at  
     your posture on  the screen.
  4. Reset counter for next rep.
- 5. Click stop button to stop.""")
+ 5. Click stop button to stop.
+ \n.
+ 
+ """)
+ 
+if selected == "Pricing":
+    st.sidebar.text("""
+Starts from $12/ month or 
+$120 billed annualy. 
+Subscriptions coming soon.""")
 
 
 
-run = st.button("_____Start Counter (for reps)_____")
+run = st.button("Start Counter (for reps)")
 
 FRAME_WINDOW = st.image([])
 
