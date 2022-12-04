@@ -3,5 +3,4 @@ streamlit==1.11.0
 requests
 streamlit-lottie
 streamlit_option_menu
-opencv-python
 Opencv-python-headless
